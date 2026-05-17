@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="60" viewBox="0 0 200 60" role="img" aria-label="Nirbhay Elevators">
+  <rect x="2" y="2" width="56" height="56" rx="10" fill="#1d242e"/>
+  <text x="30" y="42" text-anchor="middle" font-family="'Fraunces','Georgia',serif" font-size="32" font-weight="600" fill="#dfb462">N</text>
+  <text x="74" y="32" font-family="'Fraunces','Georgia',serif" font-size="20" font-weight="600" fill="#1d242e" letter-spacing="-0.4">Nirbhay</text>
+  <text x="74" y="48" font-family="'Inter','Arial',sans-serif" font-size="9" font-weight="500" fill="#5b6b83" letter-spacing="3">ELEVATORS</text>
+</svg>

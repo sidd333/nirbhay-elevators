@@ -1,65 +1,137 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Container } from "@/components/layout/Container";
+import { Section } from "@/components/layout/Section";
+import { Hero } from "@/components/marketing/Hero";
+import { StatBlock } from "@/components/marketing/StatBlock";
+import { ProductCard } from "@/components/marketing/ProductCard";
+import { ServiceCard } from "@/components/marketing/ServiceCard";
+import { ProjectCard } from "@/components/marketing/ProjectCard";
+import { TestimonialCard } from "@/components/marketing/TestimonialCard";
+import { SectionHeading } from "@/components/marketing/SectionHeading";
+import { CtaBanner } from "@/components/marketing/CtaBanner";
+import { PRODUCTS, SERVICES, PROJECTS } from "@/constants";
+import { HOME_COPY } from "@/copies/home";
+import { buildMetadata } from "@/lib/seo.utils";
 
-export default function Home() {
+export const metadata: Metadata = buildMetadata({
+  title: HOME_COPY.metaTitle,
+  description: HOME_COPY.metaDescription,
+  path: "/",
+});
+
+const TESTIMONIALS = [
+  {
+    quote:
+      "Their service team picked up the call at 2am when our hospital lift halted. On-site in 70 minutes, back in service in 90. Worth every rupee of the AMC.",
+    author: "Dr. Anjali Mehta",
+    role: "Director of Facilities",
+    company: "Kokilaben Hospital",
+  },
+  {
+    quote:
+      "We've installed Nirbhay across four towers now. Spec compliance, drawings, finish quality — they treat the lift like a product, not a commodity.",
+    author: "Vikram Iyer",
+    role: "Senior Project Manager",
+    company: "Lodha Group",
+  },
+  {
+    quote:
+      "Modernized a 22-year-old freight lift without disrupting our shift schedule. Engineering team coordinated with our plant maintenance head-on.",
+    author: "Suresh Patil",
+    role: "GM Maintenance",
+    company: "Tata Steel — Long Products",
+  },
+] as const;
+
+export default function HomePage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <Hero
+        layout="split"
+        eyebrow={HOME_COPY.hero.eyebrow}
+        title={HOME_COPY.hero.title}
+        subtitle={HOME_COPY.hero.subtitle}
+        primaryCta={{ label: HOME_COPY.hero.primaryCta, href: HOME_COPY.hero.primaryCtaHref }}
+        secondaryCta={{ label: HOME_COPY.hero.secondaryCta, href: HOME_COPY.hero.secondaryCtaHref }}
+        imageSrc={HOME_COPY.hero.imageSrc}
+        imageAlt={HOME_COPY.hero.imageAlt}
+      />
+
+      <StatBlock heading={HOME_COPY.stats.heading} items={HOME_COPY.stats.items} />
+
+      <Section tone="default" spacing="lg">
+        <Container width="xl" className="space-y-12">
+          <SectionHeading
+            eyebrow="Products"
+            title={HOME_COPY.products.heading}
+            subtitle={HOME_COPY.products.subtitle}
+            action={{ label: HOME_COPY.products.ctaLabel, href: "/products" }}
+          />
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PRODUCTS.slice(0, 6).map((product) => (
+              <li key={product.slug}>
+                <ProductCard product={product} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section tone="muted" spacing="lg">
+        <Container width="xl" className="space-y-12">
+          <SectionHeading
+            eyebrow="Services"
+            title={HOME_COPY.services.heading}
+            subtitle={HOME_COPY.services.subtitle}
+            action={{ label: HOME_COPY.services.ctaLabel, href: "/services" }}
+          />
+          <ul className="grid gap-6 sm:grid-cols-2">
+            {SERVICES.map((service) => (
+              <li key={service.slug}>
+                <ServiceCard service={service} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section tone="default" spacing="lg">
+        <Container width="xl" className="space-y-12">
+          <SectionHeading
+            eyebrow="Projects"
+            title={HOME_COPY.projects.heading}
+            subtitle={HOME_COPY.projects.subtitle}
+            action={{ label: HOME_COPY.projects.ctaLabel, href: "/projects" }}
+          />
+          <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {PROJECTS.slice(0, 3).map((project) => (
+              <li key={project.slug}>
+                <ProjectCard project={project} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <Section tone="muted" spacing="lg">
+        <Container width="xl" className="space-y-10">
+          <SectionHeading eyebrow="What clients say" title="Two decades. One promise: pick up the phone." />
+          <ul className="grid gap-6 lg:grid-cols-3">
+            {TESTIMONIALS.map((t) => (
+              <li key={t.author}>
+                <TestimonialCard {...t} />
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      <CtaBanner
+        tone="dark"
+        heading={HOME_COPY.finalCta.heading}
+        subtitle={HOME_COPY.finalCta.subtitle}
+        primaryCta={{ label: HOME_COPY.finalCta.primaryCta, href: HOME_COPY.finalCta.primaryCtaHref }}
+      />
+    </>
   );
 }

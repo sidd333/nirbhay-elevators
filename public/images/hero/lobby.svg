@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Brushed-steel passenger elevator in a marble lobby">
+  <defs>
+    <linearGradient id="marble" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#f4f6f8"/>
+      <stop offset="1" stop-color="#cbd3dc"/>
+    </linearGradient>
+    <linearGradient id="cabin" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#2c3441"/>
+      <stop offset="1" stop-color="#0f141b"/>
+    </linearGradient>
+    <linearGradient id="brass" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#dfb462"/>
+      <stop offset="1" stop-color="#b88227"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="1000" fill="url(#marble)"/>
+  <rect x="180" y="80" width="440" height="860" rx="6" fill="url(#cabin)" stroke="#475568" stroke-width="3"/>
+  <rect x="200" y="100" width="400" height="820" rx="4" fill="#1d242e"/>
+  <line x1="400" y1="120" x2="400" y2="900" stroke="#3a4555" stroke-width="3" stroke-dasharray="6 6"/>
+  <rect x="210" y="120" width="180" height="780" rx="2" fill="#2c3441"/>
+  <rect x="410" y="120" width="180" height="780" rx="2" fill="#2c3441"/>
+  <circle cx="400" cy="510" r="22" fill="url(#brass)"/>
+  <rect x="384" y="494" width="32" height="32" rx="6" fill="none" stroke="#1d242e" stroke-width="2"/>
+  <g transform="translate(120,940)" fill="#5b6b83" font-family="'Inter','Arial',sans-serif" font-size="14" letter-spacing="3">
+    <text>FLOOR 12 · LOBBY</text>
+  </g>
+</svg>

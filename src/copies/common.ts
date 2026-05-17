@@ -1,0 +1,20 @@
+export const COMMON_COPY = {
+  skipToContent: "Skip to main content",
+  openMenu: "Open menu",
+  closeMenu: "Close menu",
+  brandLogoAlt: "Nirbhay Elevators logo",
+  ctaQuote: "Get a quote",
+  ctaCall: "Call us",
+  ctaViewAll: "View all",
+  ctaLearnMore: "Learn more",
+  ctaContact: "Contact us",
+  footer: {
+    rights: "All rights reserved.",
+    builtWith: "Designed in Pune. Built across India.",
+  },
+  navLabel: "Primary navigation",
+  footerNavLabel: "Footer navigation",
+  productsHeading: "Our elevator range",
+  servicesHeading: "Services that keep you moving",
+  projectsHeading: "Where we've delivered",
+} as const;
