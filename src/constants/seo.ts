@@ -1,5 +1,5 @@
 export const SEO = {
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sidd333.github.io/nirbhay-elevators",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://nirbhay-elevator.in",
   siteName: "Nirbhay Elevators",
   defaultTitle: "Nirbhay Elevators | Passenger, Cargo & Industrial Lifts in India",
   defaultDescription:
